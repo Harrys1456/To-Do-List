@@ -1,8 +1,13 @@
 <header>
-  <h1 id="header-label">
+  <div id="header-label">
     To Do List:
-  </h1>
+  </div>
   <div id="header-icon">
-    Test
+    <button id="button-menu-icon" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon id="menu-icon" fontIcon="menu"></mat-icon>
+    </button>
   </div>
 </header>
+<div>
+  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+</div>
