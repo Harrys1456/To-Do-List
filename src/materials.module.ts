@@ -3,8 +3,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconButton } from '@angular/material/button';
+import { MatDialogModule,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle
+ } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -15,7 +22,12 @@ import { MatIconButton } from '@angular/material/button';
     MatIconButton,
     MatButtonModule,
     MatButtonToggleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
   ],
   exports: [
     MatIconModule,
@@ -23,7 +35,12 @@ import { MatIconButton } from '@angular/material/button';
     MatIconButton,
     MatButtonModule,
     MatButtonToggleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
   ]
 })
 export class MaterialsModule { }
