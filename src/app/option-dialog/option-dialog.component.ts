@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MaterialsModule } from '../../materials.module';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-option-dialog',
@@ -10,5 +11,9 @@ import { MaterialsModule } from '../../materials.module';
   styleUrl: './option-dialog.component.css'
 })
 export class OptionDialogComponent {
+  constructor(public dialogRef: MatDialogRef<OptionDialogComponent>){}
 
+  onClickClose(){
+    this.dialogRef.close();
+  }
 }

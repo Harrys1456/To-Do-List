@@ -3,9 +3,12 @@
     To Do List:
   </div>
   <div id="header-icon">
-    <button id="button-menu-icon" mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="openDialog()">
+    <button id="button-menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon id="menu-icon" fontIcon="menu"></mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openDialog()">Add a Category</button>
+    </mat-menu>
   </div>
 </header>
 <div>

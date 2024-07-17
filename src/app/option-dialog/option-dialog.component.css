@@ -1,0 +1,10 @@
+#option-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 380px;
+}
+
+#option-container{
+    margin: 0 25px 25px 25px;
+}

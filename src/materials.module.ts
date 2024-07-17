@@ -11,6 +11,9 @@ import { MatDialogModule,
   MatDialogContent,
   MatDialogTitle
  } from '@angular/material/dialog';
+ import { MatListModule } from '@angular/material/list';
+ import {MatMenuModule} from '@angular/material/menu';
+
 
 
 
@@ -28,6 +31,8 @@ import { MatDialogModule,
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatListModule,
+    MatMenuModule
   ],
   exports: [
     MatIconModule,
@@ -41,6 +46,8 @@ import { MatDialogModule,
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class MaterialsModule { }

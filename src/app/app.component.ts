@@ -14,12 +14,16 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'to-do-list';
 
   constructor(public dialog: MatDialog){}
 
   openDialog() : void{
-    //console.log("Open Dialog")
     const dialog_ref = this.dialog.open(OptionDialogComponent, { width: '400px',})
+    
+    dialog_ref.afterClosed().subscribe((result) => {
+      console.log("Dialog closed");
+    })
   }
 }
