@@ -13,6 +13,8 @@ import { MatDialogModule,
  } from '@angular/material/dialog';
  import { MatListModule } from '@angular/material/list';
  import {MatMenuModule} from '@angular/material/menu';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -32,7 +34,9 @@ import { MatDialogModule,
     MatDialogContent,
     MatDialogTitle,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     MatIconModule,
@@ -47,7 +51,9 @@ import { MatDialogModule,
     MatDialogContent,
     MatDialogTitle,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class MaterialsModule { }

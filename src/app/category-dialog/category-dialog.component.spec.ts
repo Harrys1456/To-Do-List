@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OptionDialogComponent } from './option-dialog.component';
+import { CategoryDialogComponent } from './category-dialog.component';
 
 describe('OptionDialogComponent', () => {
-  let component: OptionDialogComponent;
-  let fixture: ComponentFixture<OptionDialogComponent>;
+  let component: CategoryDialogComponent;
+  let fixture: ComponentFixture<CategoryDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OptionDialogComponent]
+      imports: [CategoryDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OptionDialogComponent);
+    fixture = TestBed.createComponent(CategoryDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

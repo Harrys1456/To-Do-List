@@ -7,11 +7,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'app-option-dialog',
   standalone: true,
   imports: [MaterialsModule],
-  templateUrl: './option-dialog.component.html',
-  styleUrl: './option-dialog.component.css'
+  templateUrl: './category-dialog.component.html',
+  styleUrl: './category-dialog.component.css'
 })
-export class OptionDialogComponent {
-  constructor(public dialogRef: MatDialogRef<OptionDialogComponent>){}
+export class CategoryDialogComponent {
+  constructor(public dialogRef: MatDialogRef<CategoryDialogComponent>){}
 
   onClickClose(){
     this.dialogRef.close();
