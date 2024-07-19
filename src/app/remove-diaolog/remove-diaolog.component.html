@@ -5,5 +5,16 @@
     </button>
 </div>
 <div id="option-container">
-    
+    <mat-selection-list #categories>
+        @for (category of category_list; track category){
+            <mat-list-option>{{category}}</mat-list-option>
+        }
+    </mat-selection-list>
+    <mat-dialog-actions>
+        <button mat-button cdkFocusInitial (click)="onNextClick()">Next..</button>
+    </mat-dialog-actions>
+</div>
+<div class="approval-container">
+    <p>Are you sure you want to delete the selected categories?</p>
+    <p>Categories selected: {{categories.selectedOptions.selected.length}}</p>
 </div>

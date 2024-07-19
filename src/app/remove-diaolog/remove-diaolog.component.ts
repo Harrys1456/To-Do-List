@@ -13,10 +13,18 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class RemoveDiaologComponent {
 
+  readonly data = inject<{category_list: string[] | undefined}>(MAT_DIALOG_DATA)
+  readonly category_list = this.data.category_list;
+  next_click: boolean = false;
+  
   constructor(public dialogRef: MatDialogRef<RemoveDiaologComponent>){}
 
-
   onClickClose(): void{
+    console.log(this.category_list);
     this.dialogRef.close();
+  }
+
+  onNextClick(): void{
+
   }
 }

@@ -40,7 +40,7 @@ export class AppComponent {
   }
 
   openRemoveDialog() : void {
-    const dialog_ref = this.dialog.open(RemoveDiaologComponent, {width: '350px'})
+    const dialog_ref = this.dialog.open(RemoveDiaologComponent, {width: '350px', data : {category_list: this.categories}})
 
     dialog_ref.afterClosed().subscribe(result => {
       console.log("closed removal dialog")

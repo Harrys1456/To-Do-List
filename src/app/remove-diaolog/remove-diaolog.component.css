@@ -8,3 +8,10 @@
 #option-container{
     margin: 0 25px 25px 25px;
 }
+
+.approval-container{
+    margin: 0 25px 25px 25px;
+    color: red;
+    font-weight: bold;
+    display: none;
+}
