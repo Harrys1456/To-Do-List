@@ -1,6 +1,6 @@
 <header>
   <div id="header-label">
-    To Do List:
+    To Do List: {{selected_category}}
   </div>
   <div id="header-icon">
     <button id="button-menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
@@ -11,6 +11,14 @@
     </mat-menu>
   </div>
 </header>
-<div>
-  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+<div id="side-nav-container">
+    <mat-sidenav class="side-nav" mode="side" opened>
+      <mat-action-list>
+        @for (category of categories; track category){
+          <button mat-list-item (click)="categorySelect($event)">
+            {{category}}
+          </button>
+        }
+      </mat-action-list>
+    </mat-sidenav>
 </div>

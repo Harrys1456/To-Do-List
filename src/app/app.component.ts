@@ -16,7 +16,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
 
   title = 'to-do-list';
-  categorys: string[] | undefined = ['Work', 'Home']
+  categories: string[] | undefined = ['Work', 'Home'];
+  selected_category: string | undefined = undefined;
 
   constructor(public dialog: MatDialog){}
 
@@ -26,5 +27,10 @@ export class AppComponent {
     dialog_ref.afterClosed().subscribe((result) => {
       console.log("Dialog closed");
     })
+  }
+
+  categorySelect(e: MouseEvent) : void {
+    const input = e.target as HTMLElement
+    this.selected_category = input.innerText;
   }
 }
