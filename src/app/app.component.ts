@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MaterialsModule } from '../materials.module';
 
@@ -18,14 +18,18 @@ export class AppComponent {
   title = 'to-do-list';
   categories: string[] | undefined = ['Work', 'Home'];
   selected_category: string | undefined = undefined;
+  readonly added_category = signal('')
 
   constructor(public dialog: MatDialog){}
 
   openCategoryDialog() : void{
-    const dialog_ref = this.dialog.open(CategoryDialogComponent, { width: '350px',})
+    const dialog_ref = this.dialog.open(CategoryDialogComponent, { width: '350px', data : {category: this.added_category()}})
     
     dialog_ref.afterClosed().subscribe((result) => {
-      console.log("Dialog closed");
+      if(result !== undefined){
+        this.added_category.set(result);
+        this.categories?.push(this.added_category())
+      }
     })
   }
 

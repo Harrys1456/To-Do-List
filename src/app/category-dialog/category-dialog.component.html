@@ -7,16 +7,9 @@
 <div id="option-container">
     <mat-form-field id="category-input">
         <mat-label>Category:</mat-label>
-        <input matInput />
+        <input matInput [(ngModel)]="category" />
     </mat-form-field>
     <mat-dialog-actions>
-        <button mat-button cdkFocusInitial>Add</button>
+        <button mat-button [mat-dialog-close]="category()" cdkFocusInitial>Add</button>
     </mat-dialog-actions>
-    <!--
-    <mat-action-list>
-        <button mat-list-item>
-            Add Category
-        </button>
-    </mat-action-list>
--->
 </div>
