@@ -5,16 +5,20 @@
     </button>
 </div>
 <div id="option-container">
-    <mat-selection-list #categories>
+    <mat-selection-list #categories [(ngModel)]="selected_categories" [disabled]="next_click">
         @for (category of category_list; track category){
-            <mat-list-option>{{category}}</mat-list-option>
+            <mat-list-option [value]="category">{{category}}</mat-list-option>
         }
     </mat-selection-list>
     <mat-dialog-actions>
-        <button mat-button cdkFocusInitial (click)="onNextClick()">Next..</button>
+        <button mat-button cdkFocusInitial (click)="onNextClick(categories.selectedOptions.selected.length)">Next Step..</button>
     </mat-dialog-actions>
 </div>
-<div class="approval-container">
+<div class="approval-container" [ngClass]="{'no-display' : !next_click}">
     <p>Are you sure you want to delete the selected categories?</p>
     <p>Categories selected: {{categories.selectedOptions.selected.length}}</p>
+    <div id="option-area">
+        <button mat-button [mat-dialog-close]="selected_categories">Yes</button>
+        <button mat-button (click)="onNoClick()">No</button>  
+    </div>
 </div>

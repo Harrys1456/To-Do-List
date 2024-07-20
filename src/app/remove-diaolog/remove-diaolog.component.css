@@ -11,7 +11,16 @@
 
 .approval-container{
     margin: 0 25px 25px 25px;
-    color: red;
+    color: #b90c0c;
     font-weight: bold;
+    transition: all 1s;
+}
+
+.no-display{
     display: none;
+}
+
+#option-area{
+    display: flex;
+    justify-content: space-evenly;
 }

@@ -41,9 +41,12 @@ export class AppComponent {
 
   openRemoveDialog() : void {
     const dialog_ref = this.dialog.open(RemoveDiaologComponent, {width: '350px', data : {category_list: this.categories}})
-
     dialog_ref.afterClosed().subscribe(result => {
-      console.log("closed removal dialog")
+      if(result !== undefined){
+        let result_values: string[] = result
+        const filtered_categories: string [] | undefined = this.categories?.filter(item => !result_values.includes(item))
+        this.categories = filtered_categories
+      }
     })
   }
 }
