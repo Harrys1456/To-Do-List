@@ -5,11 +5,16 @@ import { Category } from '../model/category';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryServiceService {
+export class CategoryService {
 
   private category: Category[] = []
 
-  constructor() { }
+  constructor() { 
+    this.category = [
+      new Category("Work"),
+      new Category("Personal")
+    ]
+  }
 
   // Gets the list of categoies
   // return: The list of category as an observable

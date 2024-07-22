@@ -6,18 +6,20 @@
     <button id="button-menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon id="menu-icon" fontIcon="menu"></mat-icon>
     </button>
+    
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openCategoryDialog()">Add a Category</button>
-      <button mat-menu-item (click)="openRemoveDialog()">Remove a Category</button>
+      <!--<button mat-menu-item (click)="openRemoveDialog()">Remove a Category</button>-->
     </mat-menu>
+  
   </div>
 </header>
 <div id="side-nav-container">
     <mat-sidenav class="side-nav" mode="side" opened>
       <mat-action-list>
-        @for (category of categories; track category){
+        @for (category of (categories$ | async); track category){
           <button mat-list-item (click)="categorySelect($event)">
-            {{category}}
+            {{category.category_title}}
           </button>
         }
       </mat-action-list>
