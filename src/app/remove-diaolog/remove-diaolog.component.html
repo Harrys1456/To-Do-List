@@ -6,8 +6,8 @@
 </div>
 <div id="option-container">
     <mat-selection-list #categories [(ngModel)]="selected_categories" [disabled]="next_click">
-        @for (category of category_list; track category){
-            <mat-list-option [value]="category">{{category}}</mat-list-option>
+        @for (category of (category_list$ | async); track category.category_title){
+            <mat-list-option [value]="category.category_title">{{category.category_title}}</mat-list-option>
         }
     </mat-selection-list>
     <mat-dialog-actions>

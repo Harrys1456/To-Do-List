@@ -1,9 +1,12 @@
 import { Component, inject, model } from '@angular/core';
+import { Observable } from 'rxjs';
 import {FormsModule} from '@angular/forms';
 import { MaterialsModule } from '../../materials.module';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-remove-diaolog',
@@ -14,8 +17,8 @@ import { CommonModule } from '@angular/common';
 })
 export class RemoveDiaologComponent {
 
-  readonly data = inject<{category_list: string[] | undefined}>(MAT_DIALOG_DATA)
-  readonly category_list = this.data.category_list;
+  readonly data = inject<{category_list: Observable<Category[]> | undefined}>(MAT_DIALOG_DATA)
+  readonly category_list$ = this.data.category_list;
   next_click: boolean = false;
   selected_categories: string[] | undefined;
   

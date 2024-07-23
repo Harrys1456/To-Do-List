@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of as ObservableOf } from 'rxjs';
+import { filter, Observable, of as ObservableOf } from 'rxjs';
 import { Category } from '../model/category';
 
 @Injectable({
@@ -28,7 +28,9 @@ export class CategoryService {
   }
 
   // Deletes a category from list of category
-  deleteCategory(category: Category): void{
-
+  deleteCategory(category_title_list: string[]): void{
+    const filtered_categories: Category[] | undefined = this.category.filter(item => !category_title_list.includes(item.category_title))
+    this.category = filtered_categories;
+    console.log(this.category)
   }
 }

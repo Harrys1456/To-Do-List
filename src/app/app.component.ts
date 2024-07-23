@@ -38,23 +38,21 @@ export class AppComponent {
     dialog_ref.afterClosed().subscribe((result) => {
       if(result !== undefined){
         this.added_category = result;
-        
         this.category_service.createCategory(this.added_category)
-        //this.categories?.push(this.added_category())
       }
     })
   }
-  /*
+  
   openRemoveDialog() : void {
-    const dialog_ref = this.dialog.open(RemoveDiaologComponent, {width: '350px', data : {category_list: this.categories}})
+    const dialog_ref = this.dialog.open(RemoveDiaologComponent, {width: '350px', data : {category_list: this.categories$}})
     dialog_ref.afterClosed().subscribe(result => {
       if(result !== undefined){
         let result_values: string[] = result
-        const filtered_categories: string [] | undefined = this.categories?.filter(item => !result_values.includes(item))
-        this.categories = filtered_categories
+        this.category_service.deleteCategory(result_values)
+        this.categories$ = this.category_service.getCategories()
       }
     })
-  }*/
+  }
 
   categorySelect(e: MouseEvent) : void {
     const input = e.target as HTMLElement
