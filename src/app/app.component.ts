@@ -23,8 +23,8 @@ export class AppComponent {
   
   public categories$: Observable<Category[]> | undefined;
   //categories: string[] | undefined = ['Work', 'Home'];
-  selected_category: string | undefined = undefined;
-  readonly added_category = signal('')
+  public selected_category: string | undefined = undefined;
+  public added_category: string = ""
 
   constructor(public dialog: MatDialog, public category_service: CategoryService){}
 
@@ -34,10 +34,12 @@ export class AppComponent {
 
   
   openCategoryDialog() : void{
-    const dialog_ref = this.dialog.open(CategoryDialogComponent, { width: '350px', data : {category: this.added_category()}})
+    const dialog_ref = this.dialog.open(CategoryDialogComponent, { width: '350px', data : {category: this.added_category}})
     dialog_ref.afterClosed().subscribe((result) => {
       if(result !== undefined){
-        this.added_category.set(result);
+        this.added_category = result;
+        
+        this.category_service.createCategory(this.added_category)
         //this.categories?.push(this.added_category())
       }
     })

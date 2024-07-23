@@ -23,8 +23,8 @@ export class CategoryService {
   }
 
   // Creates a new category and adds it to list of category
-  createCategory(): void{
-
+  createCategory(category_name: string): void{
+    this.category.push(new Category(category_name))
   }
 
   // Deletes a category from list of category
