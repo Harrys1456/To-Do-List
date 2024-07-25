@@ -1,9 +1,9 @@
-import { Component, signal, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { MaterialsModule } from '../materials.module';
+import { CommonModule } from '@angular/common';
 import { CategoryService } from './services/category.service.service';
 import { Category } from './model/category';
 
