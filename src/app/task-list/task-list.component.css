@@ -1,0 +1,7 @@
+#main-task-container{
+    float: left;
+    border: solid black 1px;
+    height: calc(100% - 100px);
+    padding: 25px 25px;
+    width: calc(100% - 300px);
+}

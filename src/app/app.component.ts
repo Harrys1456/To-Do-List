@@ -1,5 +1,7 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { MaterialsModule } from '../materials.module';
 import { CategoryService } from './services/category.service.service';
@@ -7,13 +9,13 @@ import { Category } from './model/category';
 
 import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
 import { RemoveDiaologComponent } from './remove-diaolog/remove-diaolog.component';
-import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { TaskListComponent } from './task-list/task-list.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MaterialsModule, CommonModule],
+  imports: [RouterOutlet, MaterialsModule, CommonModule, TaskListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

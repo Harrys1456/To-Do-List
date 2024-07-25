@@ -43,6 +43,7 @@ header{
 /**/
 
 #side-nav-container{
+    float: left;
     width: 300px;
     height: calc(100% - 100px);
     background-color: #F5FFFA;
