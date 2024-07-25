@@ -1,7 +1,18 @@
 #main-task-container{
     float: left;
-    border: solid black 1px;
     height: calc(100% - 100px);
     padding: 25px 25px;
     width: calc(100% - 300px);
+}
+
+.task-list{
+    min-width: 500px;
+    max-width: 700px;
+    width: auto;
+}
+
+.task-list-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

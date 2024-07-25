@@ -15,6 +15,7 @@ import { MatDialogModule,
  import {MatMenuModule} from '@angular/material/menu';
  import {MatFormFieldModule} from '@angular/material/form-field';
  import {MatInputModule} from '@angular/material/input';
+ import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -36,7 +37,8 @@ import { MatDialogModule,
     MatListModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   exports: [
     MatIconModule,
@@ -53,7 +55,8 @@ import { MatDialogModule,
     MatListModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ]
 })
 export class MaterialsModule { }
