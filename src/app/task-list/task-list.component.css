@@ -1,18 +1,31 @@
 #main-task-container{
     float: left;
+    display: flex;
+    justify-content: space-between;
     height: calc(100% - 100px);
     padding: 25px 25px;
     width: calc(100% - 300px);
 }
 
+/*Styling for Task List*/
 .task-list{
     min-width: 500px;
-    max-width: 700px;
-    width: auto;
+    width: 40%;
+    max-height: inherit;
+    overflow: overlay;
 }
 
 .task-list-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+/*Styling for Task form*/
+.task-form-container{
+    border: black solid 1px;
+    margin-left: 30px;
+    width: 60%;
+    min-width: 500px;
 }
