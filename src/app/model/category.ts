@@ -6,6 +6,10 @@ export class Category{
 
     constructor(public category_title: string){}
 
+    getTasks(): Task[]{
+        return this.task_list;
+    }
+
     // Get the count of tasks for the category
     // return: the length of task list
     getTaskCount(): number{

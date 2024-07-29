@@ -24,8 +24,8 @@ export class AppComponent {
   title = 'to-do-list';
   
   public categories$: Observable<Category[]> | undefined;
-  //categories: string[] | undefined = ['Work', 'Home'];
-  public selected_category: string | undefined = undefined;
+  public selected_category: Category | undefined;
+  public selected_category_label: string | undefined = undefined;
   public added_category: string = ""
 
   constructor(public dialog: MatDialog, public category_service: CategoryService){}
@@ -56,9 +56,10 @@ export class AppComponent {
     })
   }
 
-  categorySelect(e: MouseEvent) : void {
+  categorySelect(e: MouseEvent, category: Category) : void {
     const input = e.target as HTMLElement
-    this.selected_category = input.innerText;
+    this.selected_category_label = input.innerText;
+    this.selected_category = category
   }
   
 }

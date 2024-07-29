@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MaterialsModule } from '../../materials.module';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-task-list',
@@ -9,13 +10,13 @@ import { MaterialsModule } from '../../materials.module';
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
+  @Input() category: Category = new Category("")
+  public task_list: string[] = [];
 
-    public task_list: string[] = [];
+  constructor(){}
 
-    constructor(){}
-
-    public addTask(): void{
-      let test = "Test";
-      this.task_list.push(test);
-    }
+  public addTask(): void{
+    let test = "Test";
+    this.task_list.push(test);
+  }
 }

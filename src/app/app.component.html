@@ -1,6 +1,6 @@
 <header>
   <div id="header-label">
-    To Do List: {{selected_category}}
+    To Do List: {{selected_category_label}}
   </div>
   <div id="header-icon">
     <button id="button-menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
@@ -18,11 +18,11 @@
     <mat-sidenav class="side-nav" mode="side" opened>
       <mat-action-list>
         @for (category of (categories$ | async); track category){
-          <button mat-list-item (click)="categorySelect($event)">
+          <button mat-list-item (click)="categorySelect($event, category)">
             {{category.category_title}}
           </button>
         }
       </mat-action-list>
     </mat-sidenav>
 </div>
-<app-task-list *ngIf="selected_category != undefined"></app-task-list>
+<app-task-list *ngIf="selected_category != undefined" [category]="selected_category"></app-task-list>
