@@ -1,9 +1,24 @@
 export class Task{
     
-    is_complete: boolean = false;
+    public detail: string = ""
+    private is_complete: boolean = false;
 
-    constructor(public task_title: string){}
+    constructor(public title: string){}
 
+    // Get the name of the task
+    getTitle(): string{
+        return this.title;
+    }
+
+    // Set the name of the task
+    setName(title: string){
+        this.title = title;
+    }
+
+    // Get the detail of the task
+    getDetail(): string {
+        return this.detail
+    }
 
     // Marks the task as completed
     markCompleted(): void{
