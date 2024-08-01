@@ -16,7 +16,8 @@ import { MatDialogModule,
  import {MatFormFieldModule} from '@angular/material/form-field';
  import {MatInputModule} from '@angular/material/input';
  import { MatCardModule } from '@angular/material/card';
-
+ import { MatDatepickerModule } from '@angular/material/datepicker';
+ import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -38,7 +39,9 @@ import { MatDialogModule,
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatIconModule,
@@ -56,7 +59,9 @@ import { MatDialogModule,
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialsModule { }
