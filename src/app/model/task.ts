@@ -1,7 +1,7 @@
 export class Task{
     
     public detail: string = ""
-    public due_date: Date = new Date()
+    public due_date: Date | undefined = undefined
     private is_complete: boolean = false;
 
     constructor(public title: string){}

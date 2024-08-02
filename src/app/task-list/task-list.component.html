@@ -20,7 +20,7 @@
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="task-form-container">
+    <div class="task-form-container" [hidden]="!add_task_status">
         <mat-card>
             <mat-card-header>
                 <mat-card-title>
@@ -31,19 +31,22 @@
                 <form (ngSubmit)="onSubmit()" #toDoForm="ngForm" class="form-container">
                     <mat-form-field>
                         <mat-label>Title</mat-label>
-                        <input matInput id="title" required [(ngModel)]="task_info.title" name="title">
+                        <input matInput id="title" required [(ngModel)]="task_info.title" name="title" #name="ngModel">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Detail</mat-label>
-                        <textarea matInput required [(ngModel)]="task_info.detail" name="detail"></textarea>
+                        <textarea matInput required [(ngModel)]="task_info.detail" name="detail" #detail="ngModel"></textarea>
                     </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Due Date</mat-label>
-                        <input matInput [matDatepicker]="dueDate" [(ngModel)]="task_info.due_date" name="due_date">
-                        <mat-datepicker-toggle matIconSuffix [for]="dueDate"></mat-datepicker-toggle>
-                        <mat-datepicker #dueDate></mat-datepicker>
-                    </mat-form-field>
-                    <button mat-flat-button type="submit">Add Task</button>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Due Date</mat-label>
+                            <input matInput [matDatepicker]="dueDate" [(ngModel)]="task_info.due_date" name="due_date">
+                            <mat-datepicker-toggle matIconSuffix [for]="dueDate"></mat-datepicker-toggle>
+                            <mat-datepicker #dueDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <button  mat-flat-button type="submit" [hidden]="!add_task_status" [disabled]="name.invalid || detail.invalid">Add Task</button>
+                    <button mat-flat-button [hidden]="add_task_status"></button>
                 </form>
             </mat-card-content>
         </mat-card>

@@ -20,6 +20,7 @@ export class TaskListComponent implements OnInit {
   @Input() category: Category = new Category("")
   public task_list: Task[] = [];
   public task_info = new Task("")
+  public add_task_status: boolean = false;
 
   constructor(){}
 
@@ -35,14 +36,12 @@ export class TaskListComponent implements OnInit {
   }
 
   public addTask(): void{
-    let test = "Test";
-    this.category.addTask(new Task("Test"))
-    //this.task_list.push(test);
+    this.add_task_status = true
   }
 
   public onSubmit(): void{
-    this.category.addTask(this.task_info)
-    this.task_info = new Task("")
-    
+    this.category.addTask(this.task_info);
+    this.task_info = new Task("");
   }
+
 }
