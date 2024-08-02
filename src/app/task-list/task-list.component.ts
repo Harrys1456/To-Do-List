@@ -1,10 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MaterialsModule } from '../../materials.module';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule } from '@angular/forms';
 import { Category } from '../model/category';
 import { Task } from '../model/task';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -20,17 +19,16 @@ export class TaskListComponent implements OnInit {
   @Input() category: Category = new Category("")
   public task_list: Task[] = [];
   public task_info = new Task("")
+  public status_list: string[] = ["Incomplete", "Complete"]
   public add_task_status: boolean = false;
 
-  constructor(){}
+  constructor(private _snackbar: MatSnackBar){}
 
   ngOnInit(): void {
     this.task_list = this.category.getTasks()
   }
 
   ngOnChanges(val: any){
-    console.log("Change occurred");
-    console.log(val.category.currentValue);
     this.category = val.category.currentValue
     this.task_list = this.category.getTasks()
   }
@@ -41,7 +39,7 @@ export class TaskListComponent implements OnInit {
 
   public onSubmit(): void{
     this.category.addTask(this.task_info);
-    this.task_info = new Task("");
+    this._snackbar.open("Added task to " + this.category.category_title + " successfully!") 
   }
 
 }

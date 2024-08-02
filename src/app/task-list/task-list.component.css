@@ -5,29 +5,49 @@
     height: calc(100% - 100px);
     padding: 25px 25px;
     width: calc(100% - 300px);
+    border: black solid 1px;
 }
 
 /*Styling for Task List*/
+
 .task-list{
     min-width: 500px;
     width: 40%;
     max-height: inherit;
     overflow: overlay;
+    border: blue solid 1px;
 }
 
-.task-list-header{
+.incomplete-task-list{
+    border: green solid 1px;
+    height: 50%;
+}
+
+.incomplete-task-list-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.complete-task-list{
+    border: red solid 1px;
+    height: 50%;
+}
+
 
 /*Styling for Task form*/
+
 .task-form-container{
     border: black solid 1px;
     margin-left: 30px;
-    width: 60%;
+    width: 55%;
     min-width: 500px;
+    height: inherit;
+    overflow-y: hidden;
+}
+
+.task-card{
+    border: violet solid 1px;
 }
 
 .form-container{
@@ -36,5 +56,43 @@
     border: black solid 1px;
     margin: 25px 25px;
     min-width: 420px;
-    width: 60%;
+    width: inherit;
+}
+
+textarea{
+    min-height: 50px;
+    max-height: 200px;
+}
+
+.split-container{
+    border: darkgoldenrod solid 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#left-side{
+    border: black solid 1px;
+    width: 40%;
+}
+
+#left{
+    width: 100%;
+}
+
+#right-side{
+    border: gray solid 1px;
+    width: 40%;
+}
+
+#right{
+    width: 100%;
+}
+
+.button-container{
+    border: darkblue solid 1px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
 }

@@ -1,54 +1,91 @@
 <div id="main-task-container">
     <div class="task-list">
-        <mat-card>
-            <mat-card-header class="task-list-header">
-                <mat-card-title>
-                    Tasks:
-                </mat-card-title>
-                <button mat-icon-button (click)="addTask()">
-                    <mat-icon fontIcon="add"></mat-icon>
-                </button>
-            </mat-card-header>
-            <mat-card-content>
-                <mat-list>
-                    @for(task of task_list; track task){
-                        <mat-list-item>
-                            {{task.title}}
-                        </mat-list-item>
-                    }
-                </mat-list>
-            </mat-card-content>
-        </mat-card>
+        <div class="incomplete-task-list">
+            <mat-card>
+                <mat-card-header class="incomplete-task-list-header">
+                    <mat-card-title>
+                        Incomplete Tasks:
+                    </mat-card-title>
+                    <button mat-icon-button (click)="addTask()">
+                        <mat-icon fontIcon="add"></mat-icon>
+                    </button>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-list>
+                        @for(task of task_list; track task){
+                            <mat-list-item>
+                                {{task.title}}
+                            </mat-list-item>
+                        }
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="complete-task-list">
+            <mat-card>
+                <mat-card-header class="complete-task-list-header">
+                    <mat-card-title>
+                        Completed Tasks:
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-list>
+                        @for(task of task_list; track task){
+                            <mat-list-item>
+                                {{task.title}}
+                            </mat-list-item>
+                        }
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
-    <div class="task-form-container" [hidden]="!add_task_status">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    Task Information
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <form (ngSubmit)="onSubmit()" #toDoForm="ngForm" class="form-container">
-                    <mat-form-field>
-                        <mat-label>Title</mat-label>
-                        <input matInput id="title" required [(ngModel)]="task_info.title" name="title" #name="ngModel">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Detail</mat-label>
-                        <textarea matInput required [(ngModel)]="task_info.detail" name="detail" #detail="ngModel"></textarea>
-                    </mat-form-field>
-                    <div>
+
+    <div class="task-form-container">
+        <div class="task-card">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Task Information
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form (ngSubmit)="onSubmit()" #toDoForm="ngForm" class="form-container">
                         <mat-form-field>
-                            <mat-label>Due Date</mat-label>
-                            <input matInput [matDatepicker]="dueDate" [(ngModel)]="task_info.due_date" name="due_date">
-                            <mat-datepicker-toggle matIconSuffix [for]="dueDate"></mat-datepicker-toggle>
-                            <mat-datepicker #dueDate></mat-datepicker>
+                            <mat-label>Title</mat-label>
+                            <input matInput id="title" required [(ngModel)]="task_info.title" name="title" #name="ngModel">
                         </mat-form-field>
-                    </div>
-                    <button  mat-flat-button type="submit" [hidden]="!add_task_status" [disabled]="name.invalid || detail.invalid">Add Task</button>
-                    <button mat-flat-button [hidden]="add_task_status"></button>
-                </form>
-            </mat-card-content>
-        </mat-card>
+                        <mat-form-field>
+                            <mat-label>Detail</mat-label>
+                            <textarea matInput required [(ngModel)]="task_info.detail" name="detail" #detail="ngModel"></textarea>
+                        </mat-form-field>
+                        <div class="split-container">
+                            <div id="left-side">
+                                <mat-form-field id="left">
+                                    <mat-label>Due Date</mat-label>
+                                    <input matInput [matDatepicker]="dueDate" [(ngModel)]="task_info.due_date" name="due_date">
+                                    <mat-datepicker-toggle matIconSuffix [for]="dueDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #dueDate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div id="right-side">
+                                <mat-form-field id="right">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select>
+                                        @for (status of status_list; track status){
+                                            <mat-option [value]="status">{{status}}</mat-option>
+                                        }
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button  mat-flat-button type="submit" [disabled]="name.invalid || detail.invalid">Add Task</button>
+                            <button mat-flat-button [disabled]="name.invalid || detail.invalid">Update Task</button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 </div>
