@@ -31,20 +31,19 @@
                 <form (ngSubmit)="onSubmit()" #toDoForm="ngForm" class="form-container">
                     <mat-form-field>
                         <mat-label>Title</mat-label>
-                        <input matInput>
+                        <input matInput id="title" required [(ngModel)]="task_info.title" name="title">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Detail</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput required [(ngModel)]="task_info.detail" name="detail"></textarea>
                     </mat-form-field>
-                    
                     <mat-form-field>
-                        
                         <mat-label>Due Date</mat-label>
-                        <input matInput [matDatepicker]="dueDate">
+                        <input matInput [matDatepicker]="dueDate" [(ngModel)]="task_info.due_date" name="due_date">
                         <mat-datepicker-toggle matIconSuffix [for]="dueDate"></mat-datepicker-toggle>
                         <mat-datepicker #dueDate></mat-datepicker>
                     </mat-form-field>
+                    <button mat-flat-button type="submit">Add Task</button>
                 </form>
             </mat-card-content>
         </mat-card>

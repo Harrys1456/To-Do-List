@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MaterialsModule } from '../../materials.module';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { Category } from '../model/category';
 import { Task } from '../model/task';
@@ -14,8 +15,11 @@ import { Task } from '../model/task';
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent implements OnInit {
+
+
   @Input() category: Category = new Category("")
   public task_list: Task[] = [];
+  public task_info = new Task("")
 
   constructor(){}
 
@@ -37,6 +41,8 @@ export class TaskListComponent implements OnInit {
   }
 
   public onSubmit(): void{
-
+    this.category.addTask(this.task_info)
+    this.task_info = new Task("")
+    
   }
 }
