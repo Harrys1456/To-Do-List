@@ -13,7 +13,7 @@
                 <mat-card-content>
                     <mat-list>
                         @for(task of task_list; track task){
-                            <mat-list-item>
+                            <mat-list-item *ngIf="!task.getStatus()">
                                 {{task.title}}
                             </mat-list-item>
                         }
@@ -31,7 +31,7 @@
                 <mat-card-content>
                     <mat-list>
                         @for(task of task_list; track task){
-                            <mat-list-item>
+                            <mat-list-item *ngIf="task.getStatus()">
                                 {{task.title}}
                             </mat-list-item>
                         }
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="task-form-container">
+    <div class="task-form-container" [hidden]="!show_form_status">
         <div class="task-card">
             <mat-card>
                 <mat-card-header>
@@ -68,7 +68,7 @@
                                     <mat-datepicker #dueDate></mat-datepicker>
                                 </mat-form-field>
                             </div>
-                            <div id="right-side">
+                            <div id="right-side" [hidden]="add_task_status">
                                 <mat-form-field id="right">
                                     <mat-label>Status</mat-label>
                                     <mat-select>
@@ -80,8 +80,8 @@
                             </div>
                         </div>
                         <div class="button-container">
-                            <button  mat-flat-button type="submit" [disabled]="name.invalid || detail.invalid">Add Task</button>
-                            <button mat-flat-button [disabled]="name.invalid || detail.invalid">Update Task</button>
+                            <button  mat-flat-button type="submit" [disabled]="name.invalid || detail.invalid" [hidden]="!add_task_status">Add Task</button>
+                            <button mat-flat-button [disabled]="name.invalid || detail.invalid" [hidden]="add_task_status">Update Task</button>
                         </div>
                     </form>
                 </mat-card-content>

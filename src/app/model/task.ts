@@ -21,6 +21,10 @@ export class Task{
         return this.detail
     }
 
+    getStatus(): boolean{
+        return this.is_complete;
+    }
+
     // Marks the task as completed
     markCompleted(): void{
         this.is_complete = true;
