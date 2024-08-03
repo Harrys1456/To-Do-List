@@ -54,4 +54,10 @@ export class TaskListComponent implements OnInit {
     }
   }
 
+  public selectTask(selected_task: Task): void{
+    this.task_info = selected_task;
+    this.show_form_status = true;
+    this.add_task_status = false;
+  }
+
 }

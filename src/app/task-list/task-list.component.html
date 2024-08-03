@@ -11,13 +11,13 @@
                     </button>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-list>
+                    <mat-action-list>
                         @for(task of task_list; track task){
-                            <mat-list-item *ngIf="!task.getStatus()">
+                            <button mat-list-item (click)="selectTask(task)" *ngIf="!task.getStatus()">
                                 {{task.title}}
-                            </mat-list-item>
+                            </button>
                         }
-                    </mat-list>
+                    </mat-action-list>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -29,13 +29,13 @@
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-list>
+                    <mat-action-list>
                         @for(task of task_list; track task){
-                            <mat-list-item *ngIf="task.getStatus()">
+                            <button mat-list-item (click)="selectTask(task)" *ngIf="task.getStatus()">
                                 {{task.title}}
-                            </mat-list-item>
+                            </button>
                         }
-                    </mat-list>
+                    </mat-action-list>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -71,7 +71,7 @@
                             <div id="right-side" [hidden]="add_task_status">
                                 <mat-form-field id="right">
                                     <mat-label>Status</mat-label>
-                                    <mat-select>
+                                    <mat-select placeholder="Incomplete">
                                         @for (status of status_list; track status){
                                             <mat-option [value]="status">{{status}}</mat-option>
                                         }
