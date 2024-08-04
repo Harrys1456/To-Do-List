@@ -71,7 +71,7 @@
                             <div id="right-side" [hidden]="add_task_status">
                                 <mat-form-field id="right">
                                     <mat-label>Status</mat-label>
-                                    <mat-select placeholder="Incomplete">
+                                    <mat-select [(value)]="load_status">
                                         @for (status of status_list; track status){
                                             <mat-option [value]="status">{{status}}</mat-option>
                                         }

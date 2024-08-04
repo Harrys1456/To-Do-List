@@ -3,6 +3,7 @@ export class Task{
     public detail: string = ""
     public due_date: Date | undefined = undefined
     private is_complete: boolean = false;
+    public id: number | undefined = undefined
 
     constructor(public title: string){}
 

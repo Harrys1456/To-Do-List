@@ -3,6 +3,7 @@ import { Task } from "./task";
 export class Category{
 
     private task_list: Task[] = []
+    public task_id_count = 1;
 
     constructor(public category_title: string){}
 
@@ -18,7 +19,9 @@ export class Category{
 
     // Adds the tasks to the task list
     addTask(task: Task): void{
+        task.id = this.task_id_count;
         this.task_list.push(task);
+        this.task_id_count++;
     }
 
     // removes the task from the task list

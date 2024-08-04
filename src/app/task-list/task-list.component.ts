@@ -23,6 +23,7 @@ export class TaskListComponent implements OnInit {
   public status_list: string[] = ["Incomplete", "Complete"]
   public show_form_status: boolean = false;
   public add_task_status: boolean = false;
+  public load_status: string = "Incomplete";
 
   constructor(private _snackbar: MatSnackBar){}
 
@@ -55,9 +56,15 @@ export class TaskListComponent implements OnInit {
   }
 
   public selectTask(selected_task: Task): void{
+    console.log(selected_task);
     this.task_info = selected_task;
     this.show_form_status = true;
     this.add_task_status = false;
+    if (this.task_info.getStatus()){
+      this.load_status = "Complete"
+    } else {
+      this.load_status = "Incomplete"
+    }
   }
 
 }
