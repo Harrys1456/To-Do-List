@@ -67,4 +67,12 @@ export class TaskListComponent implements OnInit {
     }
   }
 
+  updateStatus(): void{
+    if(this.load_status == "Complete"){
+      this.task_info.markCompleted()
+    }else{
+      this.task_info.markIncompleted()
+    }
+  }
+
 }
